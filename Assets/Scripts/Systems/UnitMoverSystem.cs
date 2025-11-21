@@ -17,7 +17,7 @@ partial struct UnitMoverSystem : ISystem
                      RefRW<PhysicsVelocity>>() 
                 )
         {
-            float3 targetPosition = localTransform.ValueRO.Position + new float3(10, 0, 0);
+            float3 targetPosition = MouseWorldPosition.Instance.GetPosition();
             float3 moveDirection = targetPosition - localTransform.ValueRO.Position;
             moveDirection = math.normalize(moveDirection);
 
