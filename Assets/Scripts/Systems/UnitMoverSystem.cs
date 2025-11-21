@@ -10,7 +10,12 @@ partial struct UnitMoverSystem : ISystem
     {
         foreach ((RefRW<LocalTransform> localTransform, RefRO<MoveSpeed> moveSpeed) in SystemAPI.Query<RefRW<LocalTransform>, RefRO<MoveSpeed>>())
         {
-            localTransform.ValueRW.Position = localTransform.ValueRO.Position + new float3(moveSpeed.ValueRO.value, 0, 0)*SystemAPI.Time.DeltaTime;
+            float3 targetPosition = localTransform.ValueRO.Position + new float3(10, 0, 0);
+            float3 moveDirection = targetPosition - localTransform.ValueRO.Position;
+            moveDirection = math.normalize(moveDirection);
+
+            localTransform.ValueRW.Rotation = quaternion.LookRotation(moveDirection, math.up());
+            localTransform.ValueRW.Position += moveDirection * SystemAPI.Time.DeltaTime * moveSpeed.ValueRO.value;
         }
     }
 }
