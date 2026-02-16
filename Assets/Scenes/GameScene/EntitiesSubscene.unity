@@ -255,7 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54eb2842c122be4abbe7293850a3eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveSpeedAuthoring
-  value: 5
+  moveSpeed: 5
+  rotationSpeed: 10
 --- !u!54 &1229186008
 Rigidbody:
   m_ObjectHideFlags: 0
