@@ -10,7 +10,15 @@ partial struct UnitMoverSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        foreach ((RefRW<LocalTransform> localTransform, 
+        UnitMoverJob unitMoverJob = new UnitMoverJob
+        {
+            deltaTime = SystemAPI.Time.DeltaTime
+            
+        };
+
+        unitMoverJob.ScheduleParallel();
+
+        /*foreach ((RefRW<LocalTransform> localTransform, 
                      RefRO<UnitMover> unitMover, 
                      RefRW<PhysicsVelocity> physicsVelocity) in 
                  SystemAPI.Query<RefRW<LocalTransform>, 
@@ -28,6 +36,32 @@ partial struct UnitMoverSystem : ISystem
             physicsVelocity.ValueRW.Linear = moveDirection * unitMover.ValueRO.moveSpeed;
             physicsVelocity.ValueRW.Angular = float3.zero;
             //localTransform.ValueRW.Position += moveDirection * SystemAPI.Time.DeltaTime * moveSpeed.ValueRO.value;
+        }*/
+    }
+}
+
+[BurstCompile]
+public partial struct UnitMoverJob : IJobEntity
+{
+    public float deltaTime;
+    public void Execute(ref LocalTransform localTransform,in UnitMover unitMover,ref PhysicsVelocity physicsVelocity)
+    {
+        float3 moveDirection = unitMover.targetPosition - localTransform.Position;
+        float reachTargetDistanceSquare = 2f;
+        if (math.lengthsq(moveDirection) < reachTargetDistanceSquare)
+        {
+            physicsVelocity.Linear = float3.zero;
+            physicsVelocity.Angular = float3.zero;
+            return;
         }
+            moveDirection = math.normalize(moveDirection);
+
+            localTransform.Rotation = math.slerp(localTransform.Rotation, 
+                quaternion.LookRotation(moveDirection, math.up()), 
+                deltaTime * unitMover.rotationSpeed);
+
+            physicsVelocity.Linear = moveDirection * unitMover.moveSpeed;
+            physicsVelocity.Angular = float3.zero;
+            //localTransform.ValueRW.Position += moveDirection * SystemAPI.Time.DeltaTime * moveSpeed.ValueRO.value;
     }
 }
