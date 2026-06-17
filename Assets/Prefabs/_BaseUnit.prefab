@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 84086229933103578}
   - component: {fileID: 6040907186632163629}
   - component: {fileID: 9085981892921417381}
+  - component: {fileID: 2555642760954213401}
+  - component: {fileID: 440225911086186024}
   m_Layer: 6
   m_Name: _BaseUnit
   m_TagString: Untagged
@@ -112,6 +114,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ded9b3397d8874a81f7adfffa17d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAuthoring
+  faction: 0
+--- !u!114 &2555642760954213401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893382994452068376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8b626dbb6151b448ac2d1dc4bfc2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FindTargetAuthoring
+  range: 0
+  timerMax: 0.2
+  targetFaction: 0
+--- !u!114 &440225911086186024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893382994452068376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e97370de5a20f4d8cc49cb2ed2421d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetAuthoring
 --- !u!1 &5832450961897730098
 GameObject:
   m_ObjectHideFlags: 0
