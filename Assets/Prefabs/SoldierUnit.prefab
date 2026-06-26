@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1917415393020767804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5550598172480416438}
+  m_Layer: 6
+  m_Name: BulletSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5550598172480416438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917415393020767804}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2666, y: 1.9199, z: 1.9608}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6816388654382814207}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3026080041706932727
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2555642760954213401, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
       propertyPath: range
-      value: 7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2555642760954213401, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
       propertyPath: targetFaction
@@ -155,6 +186,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3697123760216300078, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3535411713317110314}
+    - targetCorrespondingSourceObject: {fileID: 3697123760216300078, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5550598172480416438}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 893382994452068376, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
       insertIndex: -1
@@ -190,6 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootAttackAuthoring
   timerMax: 0.2
   damageAmount: 5
+  attackDistance: 13
+  bulletSpawnPositionTransform: {fileID: 5550598172480416438}
 --- !u!114 &5496217512316137298
 MonoBehaviour:
   m_ObjectHideFlags: 0
