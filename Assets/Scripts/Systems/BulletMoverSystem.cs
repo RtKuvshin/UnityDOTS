@@ -17,6 +17,11 @@ partial struct BulletMoverSystem : ISystem
                      RefRO<Target> target,
                      Entity entity) in SystemAPI.Query<RefRW<LocalTransform>,RefRO<Bullet>, RefRO<Target>>().WithEntityAccess())
         {
+            if (target.ValueRO.targetEntity == Entity.Null)
+            {
+                entityCommandBuffer.DestroyEntity(entity); 
+                continue;
+            }
             LocalTransform targetLocalTransform = SystemAPI.GetComponent<LocalTransform>(target.ValueRO.targetEntity);
             float distanceBefore = math.distancesq(localTransform.ValueRO.Position, targetLocalTransform.Position);
             float3 moveDirection = targetLocalTransform.Position - localTransform.ValueRO.Position;

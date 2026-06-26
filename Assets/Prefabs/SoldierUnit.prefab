@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShootAttackAuthoring
   timerMax: 0.2
+  damageAmount: 5
 --- !u!114 &5496217512316137298
 MonoBehaviour:
   m_ObjectHideFlags: 0

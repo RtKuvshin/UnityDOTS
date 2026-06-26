@@ -1,5 +1,6 @@
 using Unity.Burst;
 using Unity.Entities;
+using Unity.Transforms;
 using UnityEngine;
 
 partial struct ShootAttackSystem : ISystem
@@ -8,9 +9,11 @@ partial struct ShootAttackSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        foreach ((RefRW<ShootAttack> shootAttack, 
+        EntitiesReference entitiesReference = SystemAPI.GetSingleton<EntitiesReference>();
+        foreach ((RefRO<LocalTransform> localTransform,
+                     RefRW<ShootAttack> shootAttack, 
                      RefRO<Target> target) 
-                 in SystemAPI.Query<
+                 in SystemAPI.Query<RefRO<LocalTransform>,
                      RefRW<ShootAttack>,
                      RefRO<Target>>())
         {
@@ -26,8 +29,14 @@ partial struct ShootAttackSystem : ISystem
             }
             shootAttack.ValueRW.timer = shootAttack.ValueRO.timerMax;
 
-            RefRW<Health> targetHealth = SystemAPI.GetComponentRW<Health>(target.ValueRO.targetEntity);
-            targetHealth.ValueRW.healthAmount--;
+            Entity bulletEntity = state.EntityManager.Instantiate(entitiesReference.bulletPrefabEntity);
+            SystemAPI.SetComponent(bulletEntity, LocalTransform.FromPosition(localTransform.ValueRO.Position));
+
+            RefRW<Bullet> bulletBullet = SystemAPI.GetComponentRW<Bullet>(bulletEntity);
+            bulletBullet.ValueRW.damageAmount = shootAttack.ValueRO.damageAmount;
+
+            RefRW<Target> bulletTarget = SystemAPI.GetComponentRW<Target>(bulletEntity);
+            bulletTarget.ValueRW.targetEntity = target.ValueRO.targetEntity;
         }
     }
 }
