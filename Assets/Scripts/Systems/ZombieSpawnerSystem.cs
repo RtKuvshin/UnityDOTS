@@ -1,5 +1,6 @@
 using Unity.Burst;
 using Unity.Entities;
+using Unity.Mathematics;
 using Unity.Transforms;
 
 partial struct ZombieSpawnerSystem : ISystem
@@ -8,6 +9,8 @@ partial struct ZombieSpawnerSystem : ISystem
     public void OnUpdate(ref SystemState state)
     {
         EntitiesReference entitiesReference = SystemAPI.GetSingleton<EntitiesReference>();
+        EntityCommandBuffer entityCommandBuffer =
+            SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
         foreach ( (RefRO<LocalTransform> localTransform, RefRW<ZombieSpawn> zombieSpawn) in SystemAPI.Query<RefRO<LocalTransform>, RefRW<ZombieSpawn>>())
         {
             zombieSpawn.ValueRW.timer -= SystemAPI.Time.DeltaTime;
@@ -19,6 +22,15 @@ partial struct ZombieSpawnerSystem : ISystem
 
             Entity zombieEntity = state.EntityManager.Instantiate(entitiesReference.zombiePrefabEntity);
             SystemAPI.SetComponent(zombieEntity, LocalTransform.FromPosition(localTransform.ValueRO.Position));
+            
+            entityCommandBuffer.AddComponent(zombieEntity, new RandomWalking
+            {
+                originPosition = localTransform.ValueRO.Position,
+                targetPosition = localTransform.ValueRO.Position,
+                distanceMin = zombieSpawn.ValueRO.randomWalkingDistanceMin,
+                distanceMax = zombieSpawn.ValueRO.randomWalkingDistanceMax,
+                random = new Random((uint)zombieEntity.Index)
+            });
         }   
     }
 }

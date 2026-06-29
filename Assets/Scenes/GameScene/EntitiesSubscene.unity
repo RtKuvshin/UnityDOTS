@@ -423,6 +423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieSpawnAuthoring
   timerMax: 1
+  randomWalkingDistanceMin: 3
+  randomWalkingDistanceMax: 10
 --- !u!4 &591693874
 Transform:
   m_ObjectHideFlags: 0
@@ -495,6 +497,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
+--- !u!1 &1741919523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7683084605433692124, guid: 4557b573c193e354c8398d1d3c59aad1, type: 3}
+  m_PrefabInstance: {fileID: 1745764817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1741919536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741919523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9baf526a8692a9542b48c62720df2868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomWalkingAuthoring
+  targetPosition:
+    x: 17
+    y: 0
+    z: 4
+  originPosition:
+    x: 17
+    y: 0
+    z: 4
+  distanceMin: 1
+  distanceMax: 5
 --- !u!1001 &1745764817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,10 +576,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 7683084605433692124, guid: 4557b573c193e354c8398d1d3c59aad1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7683084605433692124, guid: 4557b573c193e354c8398d1d3c59aad1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1741919536}
   m_SourcePrefab: {fileID: 100100000, guid: 4557b573c193e354c8398d1d3c59aad1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
