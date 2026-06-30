@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EntitiesReferenceAuthoring
   bulletPrefabGameObject: {fileID: 9105015384823609996, guid: 4c2f22adf6311ad4ab2effcad7c08889, type: 3}
   zombiePrefabGameObject: {fileID: 7683084605433692124, guid: 4557b573c193e354c8398d1d3c59aad1, type: 3}
+  shootLightPrefabGameObject: {fileID: 8375414590434184495, guid: d0a791efe8e89ea48a8fcb91ebf6d99d, type: 3}
 --- !u!4 &254004116
 Transform:
   m_ObjectHideFlags: 0
@@ -409,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &591693873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7683084605433692124, guid: 4557b573c193e354c8398d1d3c59aad1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
