@@ -39,7 +39,7 @@ partial struct FindTargetSystem : ISystem
             {
                 foreach (var distanceHit in distanceHitList)
                 {
-                    if (!SystemAPI.Exists(distanceHit.Entity  ) || !SystemAPI.HasComponent<Unit>(distanceHit.Entity))
+                    if (!SystemAPI.Exists(distanceHit.Entity) || !SystemAPI.HasComponent<Unit>(distanceHit.Entity))
                     {
                         continue;
                     }
@@ -47,6 +47,7 @@ partial struct FindTargetSystem : ISystem
                     if (targetUnit.faction == findTarget.ValueRO.targetFaction)
                     {
                         target.ValueRW.targetEntity = distanceHit.Entity;
+                        break;
                     }
                 }
             }

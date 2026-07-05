@@ -111,6 +111,9 @@ PrefabInstance:
       addedObject: {fileID: 6638053576982942127}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 893382994452068376, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: -6770232387554972623}
+    - targetCorrespondingSourceObject: {fileID: 893382994452068376, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9020216841772420596}
     - targetCorrespondingSourceObject: {fileID: 893382994452068376, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
@@ -127,6 +130,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 893382994452068376, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
   m_PrefabInstance: {fileID: 7420282524646311876}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6770232387554972623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683084605433692124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2822d7794ab43364eb7405b0fb544788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeAttackAuthoring
+  timerMax: 0.5
+  damageAmount: 10
+  colliderSize: 0.5
 --- !u!114 &9020216841772420596
 MonoBehaviour:
   m_ObjectHideFlags: 0
