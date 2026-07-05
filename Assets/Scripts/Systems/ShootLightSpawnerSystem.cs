@@ -7,6 +7,12 @@ using Unity.Transforms;
     public partial struct ShootLightSpawnerSystem : ISystem
     {
         [BurstCompile]
+        public void OnCreate(ref SystemState state)
+        {
+            state.RequireForUpdate<EntitiesReference>();
+        }
+
+        [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
             EntitiesReference entitiesReference = SystemAPI.GetSingleton<EntitiesReference>();

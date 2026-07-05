@@ -6,6 +6,11 @@ using UnityEngine;
 
 partial struct ShootAttackSystem : ISystem
 {
+    [BurstCompile]
+    public void OnCreate(ref SystemState state)
+    {
+        state.RequireForUpdate<EntitiesReference>();
+    }
 
     [BurstCompile]
     public void OnUpdate(ref SystemState state)

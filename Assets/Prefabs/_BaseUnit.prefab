@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 979657843431741032}
   - component: {fileID: 7106991556033534756}
   - component: {fileID: 1989719123652728203}
+  - component: {fileID: -5894210827249596270}
   m_Layer: 6
   m_Name: _BaseUnit
   m_TagString: Untagged
@@ -185,6 +186,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef294ddd341f2042819fe57b8892f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveOverrideAuthoring
+--- !u!114 &-5894210827249596270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893382994452068376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909469a9e37bf3c4bb6fea093239f56f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoseTargetAuthoring
+  loseTargetDistance: 20
 --- !u!1 &1297126351076522978
 GameObject:
   m_ObjectHideFlags: 0

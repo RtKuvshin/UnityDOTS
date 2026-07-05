@@ -6,6 +6,12 @@ using Unity.Transforms;
 partial struct ZombieSpawnerSystem : ISystem
 {
     [BurstCompile]
+    public void OnCreate(ref SystemState state)
+    {
+        state.RequireForUpdate<EntitiesReference>();
+    }
+
+    [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
         EntitiesReference entitiesReference = SystemAPI.GetSingleton<EntitiesReference>();
