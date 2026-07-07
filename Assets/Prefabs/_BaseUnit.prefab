@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 84086229933103578}
   - component: {fileID: 6040907186632163629}
   - component: {fileID: 9085981892921417381}
+  - component: {fileID: 442721362783157592}
   - component: {fileID: 2555642760954213401}
   - component: {fileID: 440225911086186024}
   - component: {fileID: 979657843431741032}
@@ -120,6 +121,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAuthoring
   faction: 0
+--- !u!114 &442721362783157592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893382994452068376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4852d4aeacea38f43bf8599121b652b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetOverrideAuthoring
 --- !u!114 &2555642760954213401
 MonoBehaviour:
   m_ObjectHideFlags: 0

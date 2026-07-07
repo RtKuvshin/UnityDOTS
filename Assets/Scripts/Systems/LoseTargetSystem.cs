@@ -11,11 +11,16 @@ partial struct LoseTargetSystem : ISystem
     {
         foreach ((RefRO<LocalTransform> localTransform, 
                      RefRW<Target> target,
-                     RefRO<LoseTarget> loseTarget) in SystemAPI.Query<RefRO<LocalTransform>,
+                     RefRO<LoseTarget> loseTarget, RefRW<TargetOverride> targetOverride) in SystemAPI.Query<RefRO<LocalTransform>,
                      RefRW<Target>, 
-                     RefRO<LoseTarget>>())
+                     RefRO<LoseTarget>, RefRW<TargetOverride>>())
         {
             if (target.ValueRO.targetEntity == Entity.Null)
+            {
+                continue;
+            }
+
+            if (targetOverride.ValueRO.targetEntity == Entity.Null)
             {
                 continue;
             }
