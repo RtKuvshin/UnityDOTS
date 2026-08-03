@@ -470,6 +470,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &696711893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4406622815632521699, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
+  m_PrefabInstance: {fileID: 1150869454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &696711895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696711893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1df13eb4f34c24ea2182049fc29ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActiveAnimationAuthoring
 --- !u!1 &825631088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7040129232727732681, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
@@ -563,7 +580,56 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7040129232727732681, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
       insertIndex: 4
       addedObject: {fileID: 1973185290}
+    - targetCorrespondingSourceObject: {fileID: 4406622815632521699, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 696711895}
   m_SourcePrefab: {fileID: 100100000, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
+--- !u!1 &1421920966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1421920968}
+  - component: {fileID: 1421920967}
+  m_Layer: 0
+  m_Name: AnimationDataHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1421920967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421920966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076b3d2d630bd9442b9c22e2243b75d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationDataHolderAuthoring
+  soldierIdle: {fileID: 11400000, guid: f480b075c55c9ef4dac1593e153a199c, type: 2}
+  soldierWalk: {fileID: 11400000, guid: d9ad0ce21b6015345a5cc7915cd69dbd, type: 2}
+--- !u!4 &1421920968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421920966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741919523 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7683084605433692124, guid: 4557b573c193e354c8398d1d3c59aad1, type: 3}
@@ -697,6 +763,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1421920968}
   - {fileID: 254004116}
   - {fileID: 377947835}
   - {fileID: 203284000}

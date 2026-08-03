@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032016f8746ca654e8c6b38e7f22b831, type: 3}
   m_Name: Soldier_Idle
   m_EditorClassIdentifier: Assembly-CSharp::AnimationDataSO
-  meshArray: []
-  frameTimerMax: 0
+  meshArray:
+  - {fileID: 4300000, guid: 3e67c8e712f2b5040aaaeb8eb2492345, type: 2}
+  - {fileID: 4300000, guid: 94ffd3753a934114d9fb144c7cb75e89, type: 2}
+  frameTimerMax: 0.5
