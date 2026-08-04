@@ -180,6 +180,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4760440516151728485, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      propertyPath: nextAnimationType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334605577302640303, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      propertyPath: idleAnimationType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334605577302640303, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      propertyPath: walkAnimationType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -17,15 +17,6 @@ partial struct ActiveAnimationSystem : ISystem
         AnimationDataHolder animationDataHolder= SystemAPI.GetSingleton<AnimationDataHolder>();
         foreach ((RefRW<ActiveAnimation> activeAnimation, RefRW<MaterialMeshInfo> materialMeshInfo) in SystemAPI.Query<RefRW<ActiveAnimation>, RefRW<MaterialMeshInfo>>())
         {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                activeAnimation.ValueRW.activeAnimationType = AnimationDataSO.AnimationType.SoldierIdle;
-            }
-            if (Input.GetKeyDown(KeyCode.Y))
-            {
-                activeAnimation.ValueRW.activeAnimationType = AnimationDataSO.AnimationType.SoldierWalk;
-            }
-
             ref AnimationData animationData = ref animationDataHolder.animationDataBlobArrayBlobAssetReference.Value[(int)activeAnimation.ValueRO.activeAnimationType];
             
             activeAnimation.ValueRW.frameTimer += SystemAPI.Time.DeltaTime;

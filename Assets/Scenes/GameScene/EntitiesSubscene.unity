@@ -470,23 +470,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &696711893 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4406622815632521699, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
-  m_PrefabInstance: {fileID: 1150869454}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &696711895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696711893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1df13eb4f34c24ea2182049fc29ca1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ActiveAnimationAuthoring
 --- !u!1 &825631088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7040129232727732681, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
@@ -580,9 +563,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7040129232727732681, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
       insertIndex: 4
       addedObject: {fileID: 1973185290}
-    - targetCorrespondingSourceObject: {fileID: 4406622815632521699, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 696711895}
   m_SourcePrefab: {fileID: 100100000, guid: 078ca555a861ddc4283180c83211e36a, type: 3}
 --- !u!1 &1421920966
 GameObject:

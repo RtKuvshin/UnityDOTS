@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 
 public class ActiveAnimationAuthoring : MonoBehaviour
 {
+    public AnimationDataSO.AnimationType nextAnimationType;
     
     public class Baker : Baker<ActiveAnimationAuthoring>
     {
@@ -15,7 +16,7 @@ public class ActiveAnimationAuthoring : MonoBehaviour
                 World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<EntitiesGraphicsSystem>();
             AddComponent(entity, new ActiveAnimation()
             {
-                
+                nextAnimationType = authoring.nextAnimationType
             });
         }
     }
@@ -26,4 +27,5 @@ public struct ActiveAnimation : IComponentData
     public int frame;
     public float frameTimer;
     public AnimationDataSO.AnimationType activeAnimationType;
+    public AnimationDataSO.AnimationType nextAnimationType;
 }

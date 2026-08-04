@@ -45,7 +45,7 @@ partial struct UnitMoverSystem : ISystem
 public partial struct UnitMoverJob : IJobEntity
 {
     public float deltaTime;
-    public void Execute(ref LocalTransform localTransform,in UnitMover unitMover,ref PhysicsVelocity physicsVelocity)
+    public void Execute(ref LocalTransform localTransform,ref UnitMover unitMover,ref PhysicsVelocity physicsVelocity)
     {
         float3 moveDirection = unitMover.targetPosition - localTransform.Position;
         float reachTargetDistanceSquare = UnitMoverSystem.REACH_TARGET_DISTANCE_SQUARE;
@@ -53,9 +53,12 @@ public partial struct UnitMoverJob : IJobEntity
         {
             physicsVelocity.Linear = float3.zero;
             physicsVelocity.Angular = float3.zero;
+            unitMover.isMoving = false;
             return;
         }
-            moveDirection = math.normalize(moveDirection);
+
+        unitMover.isMoving = true;
+        moveDirection = math.normalize(moveDirection);
 
             localTransform.Rotation = math.slerp(localTransform.Rotation, 
                 quaternion.LookRotation(moveDirection, math.up()), 

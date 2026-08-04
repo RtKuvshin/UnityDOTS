@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 7106991556033534756}
   - component: {fileID: 1989719123652728203}
   - component: {fileID: -5894210827249596270}
+  - component: {fileID: 5334605577302640303}
+  - component: {fileID: 2700569731023284910}
   m_Layer: 6
   m_Name: _BaseUnit
   m_TagString: Untagged
@@ -212,6 +214,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoseTargetAuthoring
   loseTargetDistance: 20
+--- !u!114 &5334605577302640303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893382994452068376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f09681dcf57cc4ba1288cf3d1675e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitAnimationsAuthoring
+  idleAnimationType: 0
+  walkAnimationType: 0
+--- !u!114 &2700569731023284910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893382994452068376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acda98285b19bc46b65ac2c0767870c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimatedMeshAuthoring
+  meshGameObject: {fileID: 5832450961897730098}
 --- !u!1 &1297126351076522978
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +332,7 @@ GameObject:
   - component: {fileID: 8506913915535826727}
   - component: {fileID: 3370704824086974183}
   - component: {fileID: 4711574691557568788}
+  - component: {fileID: 4760440516151728485}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -381,6 +411,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4760440516151728485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5832450961897730098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1df13eb4f34c24ea2182049fc29ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActiveAnimationAuthoring
+  nextAnimationType: 0
 --- !u!1 &5907673283417302771
 GameObject:
   m_ObjectHideFlags: 0

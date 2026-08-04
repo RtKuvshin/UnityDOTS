@@ -95,6 +95,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 85cd5279f313d294c8d4eb59ece3cb5b, type: 2}
+    - target: {fileID: 4760440516151728485, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      propertyPath: nextAnimationType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334605577302640303, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      propertyPath: idleAnimationType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334605577302640303, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      propertyPath: walkAnimationType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7054739674689076231, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
       propertyPath: moveSpeed
       value: 3
