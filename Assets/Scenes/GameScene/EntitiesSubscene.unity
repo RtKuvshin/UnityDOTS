@@ -613,8 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076b3d2d630bd9442b9c22e2243b75d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationDataHolderAuthoring
-  soldierIdle: {fileID: 11400000, guid: f480b075c55c9ef4dac1593e153a199c, type: 2}
-  soldierWalk: {fileID: 11400000, guid: d9ad0ce21b6015345a5cc7915cd69dbd, type: 2}
+  animationDataListSo: {fileID: 11400000, guid: a27026c386e7731478c4e8899057bf7d, type: 2}
 --- !u!4 &1421920968
 Transform:
   m_ObjectHideFlags: 0
