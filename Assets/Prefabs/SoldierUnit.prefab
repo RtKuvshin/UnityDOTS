@@ -185,12 +185,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334605577302640303, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      propertyPath: aimAnimationType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334605577302640303, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
       propertyPath: idleAnimationType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334605577302640303, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
       propertyPath: walkAnimationType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334605577302640303, guid: 6a9402fc565caa74e81dfbf322e8c65b, type: 3}
+      propertyPath: shootAnimationType
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

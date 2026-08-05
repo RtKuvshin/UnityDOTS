@@ -10,7 +10,8 @@ partial struct ResetEventsSystem : ISystem
         new ResetAttackEventJob().ScheduleParallel();
         new ResetHealthEventJob().ScheduleParallel();
         new ResetSelectedEventJob().ScheduleParallel();
-        
+        new ResetMeleeAttackEventJob().ScheduleParallel();
+
         /*foreach (RefRW<Selected> selected in SystemAPI.Query<RefRW<Selected>>().WithPresent<Selected>())
         {
             selected.ValueRW.onSelected = false;
@@ -47,6 +48,16 @@ public partial struct ResetHealthEventJob : IJobEntity
         health.onHealthChanged = false;
     }
 }
+
+[BurstCompile]
+public partial struct ResetMeleeAttackEventJob : IJobEntity
+{
+    public void Execute(ref MeleeAttack meleeAttack)
+    {
+        meleeAttack.onAttacked = false;
+    }
+}
+
 [BurstCompile]
 [WithOptions(EntityQueryOptions.IgnoreComponentEnabledState)]
 public partial struct ResetSelectedEventJob : IJobEntity

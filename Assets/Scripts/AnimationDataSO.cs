@@ -8,7 +8,10 @@ public class AnimationDataSO : ScriptableObject
         SoldierIdle,
         SoldierWalk,
         ZombieIdle,
-        ZombieWalk
+        ZombieWalk,
+        SoldierAim,
+        SoldierShoot,
+        ZombieAttack
     }
 
     public AnimationType animationType;

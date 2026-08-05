@@ -5,6 +5,9 @@ public class UnitAnimationsAuthoring : MonoBehaviour
 {
    public AnimationDataSO.AnimationType idleAnimationType;
    public AnimationDataSO.AnimationType walkAnimationType;
+   public AnimationDataSO.AnimationType shootAnimationType;
+   public AnimationDataSO.AnimationType aimAnimationType;
+   public AnimationDataSO.AnimationType meleeAnimationType;
    
    public class Baker : Baker<UnitAnimationsAuthoring>
    {
@@ -14,7 +17,10 @@ public class UnitAnimationsAuthoring : MonoBehaviour
          AddComponent(entity, new UnitAnimations()
          {
             idleAnimationType = authoring.idleAnimationType,
-            walkAnimationType = authoring.walkAnimationType
+            walkAnimationType = authoring.walkAnimationType,
+            shootAnimationType = authoring.shootAnimationType,
+            aimAnimationType = authoring.aimAnimationType,
+            meleeAnimationType = authoring.meleeAnimationType
          });
       }
    }
@@ -24,4 +30,7 @@ public struct UnitAnimations : IComponentData
 {
    public AnimationDataSO.AnimationType idleAnimationType;
    public AnimationDataSO.AnimationType walkAnimationType;
+   public AnimationDataSO.AnimationType shootAnimationType;
+   public AnimationDataSO.AnimationType aimAnimationType;
+   public AnimationDataSO.AnimationType meleeAnimationType;
 }
