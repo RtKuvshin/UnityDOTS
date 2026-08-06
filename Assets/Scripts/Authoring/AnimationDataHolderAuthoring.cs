@@ -7,49 +7,58 @@ using UnityEngine.Rendering;
 public class AnimationDataHolderAuthoring : MonoBehaviour
 {
     public AnimationDataListSO animationDataListSo;
+    public Material defaultMaterial;
     public class Baker : Baker<AnimationDataHolderAuthoring>
     {
         public override void Bake(AnimationDataHolderAuthoring authoring)
         {
             Entity entity = GetEntity(TransformUsageFlags.Dynamic);
             AnimationDataHolder animationDataHolder = new AnimationDataHolder();
-            EntitiesGraphicsSystem entitiesGraphicsSystem =
-                World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<EntitiesGraphicsSystem>();
-
-            
-                BlobBuilder blobBuilder = new BlobBuilder(Allocator.Temp);
-                ref BlobArray<AnimationData> animationDataBlobArray = ref blobBuilder.ConstructRoot<BlobArray<AnimationData>>();
-                BlobBuilderArray<AnimationData> animationDataBlobBuilderArray =
-                    blobBuilder.Allocate<AnimationData>(ref animationDataBlobArray, System.Enum.GetValues(typeof(AnimationDataSO.AnimationType)).Length);
-
-                int index = 0;
+            int index = 0;
                 foreach (AnimationDataSO.AnimationType animationType in System.Enum.GetValues(typeof(AnimationDataSO.AnimationType)))
                 {
                     AnimationDataSO animationDataSo = authoring.animationDataListSo.GetAnimationDataSO(animationType);
-                    BlobBuilderArray<BatchMeshID> blobBuilderArray =
-                        blobBuilder.Allocate<BatchMeshID>(ref animationDataBlobBuilderArray[index].batchMeshIDBlobArray,
-                            animationDataSo.meshArray.Length);
-                    
-                    animationDataBlobBuilderArray[index].frameTimerMax = animationDataSo.frameTimerMax;
-                    animationDataBlobBuilderArray[index].frameMax = animationDataSo.meshArray.Length;
-                    
+
                     for (int i = 0; i < animationDataSo.meshArray.Length; i++)
                     {
                         Mesh mesh = animationDataSo.meshArray[i];
-                        blobBuilderArray[i] = entitiesGraphicsSystem.RegisterMesh(mesh);
-                    }
 
+                        Entity additionalEntity = CreateAdditionalEntity(TransformUsageFlags.None, true);
+
+                        AddComponent(additionalEntity, new MaterialMeshInfo());
+                        AddComponent(additionalEntity, new RenderMeshUnmanaged
+                        {
+                            materialForSubMesh = authoring.defaultMaterial,
+                            mesh = mesh
+                        });
+                        AddComponent(additionalEntity, new AnimationDataHolderSubEntity
+                        {
+                            animationType = animationType,
+                            meshIndex = i
+                        });
+                    }
                     index++;
                 }
             
-                animationDataHolder.animationDataBlobArrayBlobAssetReference =
-                        blobBuilder.CreateBlobAssetReference<BlobArray<AnimationData>>(Allocator.Persistent);
-                blobBuilder.Dispose();
-                AddBlobAsset(ref animationDataHolder.animationDataBlobArrayBlobAssetReference, out Unity.Entities.Hash128 objectHash);
-            
+            AddComponent(entity, new AnimationDataHolderObjectData
+            {
+                unityObjectRefAnimationDataListSO = authoring.animationDataListSo
+            });
             AddComponent(entity, animationDataHolder);
         }
     }
+}
+
+public struct AnimationDataHolderObjectData : IComponentData
+{
+    public UnityObjectRef<AnimationDataListSO> unityObjectRefAnimationDataListSO;
+}
+
+public struct AnimationDataHolderSubEntity : IComponentData
+{
+    public AnimationDataSO.AnimationType animationType;
+    public int meshIndex;
+    
 }
 
 public struct AnimationDataHolder : IComponentData
@@ -61,5 +70,5 @@ public struct AnimationData
 {
     public float frameTimerMax;
     public int frameMax;
-    public BlobArray<BatchMeshID> batchMeshIDBlobArray;
+    public BlobArray<int> intMeshIDBlobArray;
 }

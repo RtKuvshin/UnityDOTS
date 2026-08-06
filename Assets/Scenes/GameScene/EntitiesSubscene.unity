@@ -594,6 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationDataHolderAuthoring
   animationDataListSo: {fileID: 11400000, guid: a27026c386e7731478c4e8899057bf7d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: dd5ad9aa2bda4b5429d105dfedfc7125, type: 2}
 --- !u!4 &1421920968
 Transform:
   m_ObjectHideFlags: 0

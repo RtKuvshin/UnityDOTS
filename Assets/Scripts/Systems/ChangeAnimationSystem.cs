@@ -6,6 +6,12 @@ using UnityEngine;
 partial struct ChangeAnimationSystem : ISystem
 {
     [BurstCompile]
+    public void OnCreate(ref SystemState state)
+    {
+        state.RequireForUpdate<AnimationDataHolder>();
+    }
+
+    [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
         AnimationDataHolder animationDataHolder= SystemAPI.GetSingleton<AnimationDataHolder>();
@@ -61,7 +67,7 @@ public partial struct ChangeAnimationJob : IJobEntity
             activeAnimation.activeAnimationType = activeAnimation.nextAnimationType;
                 
             ref AnimationData animationData = ref animationDataBlobArrayBlobAssetReference.Value[(int)activeAnimation.activeAnimationType];
-            materialMeshInfo.MeshID = animationData.batchMeshIDBlobArray[0];
+            materialMeshInfo.Mesh = animationData.intMeshIDBlobArray[0];
         }
     }
 }

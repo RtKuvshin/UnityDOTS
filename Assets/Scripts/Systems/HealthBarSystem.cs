@@ -20,7 +20,7 @@ partial struct HealthBarSystem : ISystem
         _postTransformMatrixLookup = state.GetComponentLookup<PostTransformMatrix>(false);
     }
     
-    [BurstCompile]
+   
     public void OnUpdate(ref SystemState state)
     {
         Vector3 cameraForward = Vector3.zero;
