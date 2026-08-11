@@ -51,15 +51,11 @@ public partial struct ChangeAnimationJob : IJobEntity
     public void Execute(ref ActiveAnimation activeAnimation, ref MaterialMeshInfo materialMeshInfo)
     {
         
-        if (activeAnimation.activeAnimationType == AnimationDataSO.AnimationType.SoldierShoot)
+        if (AnimationDataSO.IsAnimationUnInteractable(activeAnimation.activeAnimationType))
         {
             return;
         }
-        if (activeAnimation.activeAnimationType == AnimationDataSO.AnimationType.ZombieAttack)
-        {
-            return;
-        }
-        
+
         if (activeAnimation.activeAnimationType != activeAnimation.nextAnimationType)
         {
             activeAnimation.frame = 0;
