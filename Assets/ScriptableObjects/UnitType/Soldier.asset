@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 307ac8db85004cb4a9e63cd3bab5f2e4, type: 3}
-  m_Name: Tower
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingTypeSO
-  buildingType: 2
+  m_Script: {fileID: 11500000, guid: b5b13531a59443e4d9f72cb82da14ecf, type: 3}
+  m_Name: Soldier
+  m_EditorClassIdentifier: Assembly-CSharp::UnitTypeSO
+  unitType: 1

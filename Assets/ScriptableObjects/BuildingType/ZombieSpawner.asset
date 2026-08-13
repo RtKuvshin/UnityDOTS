@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307ac8db85004cb4a9e63cd3bab5f2e4, type: 3}
   m_Name: ZombieSpawner
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTypeSO
-  buildingType: 0
+  buildingType: 1

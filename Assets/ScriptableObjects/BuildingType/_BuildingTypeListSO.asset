@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0298b2134feebb94896dd8e406d3e1e6, type: 3}
   m_Name: _BuildingTypeListSO
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTypeListSO
-  buildingTypeSOList: []
+  buildingTypeSOList:
+  - {fileID: 11400000, guid: 1a50588b1ff8d4740913335609c1b180, type: 2}
+  - {fileID: 11400000, guid: 177350967da57ca43834beaae6d5f821, type: 2}
+  - {fileID: 11400000, guid: 34a85fbe1ee3f7549aea5a0b10525599, type: 2}
+  - {fileID: 11400000, guid: f515b3305a986ca4ca35eb6a85b9f7c0, type: 2}
