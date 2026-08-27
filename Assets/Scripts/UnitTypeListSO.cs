@@ -6,7 +6,7 @@ public class UnitTypeListSO : ScriptableObject
 {
     public List<UnitTypeSO> unitTypeListSO;
     
-    public UnitTypeSO GetUnitTypeListSO(UnitTypeSO.UnitType _unitType)
+    public UnitTypeSO GetUnitTypeSO(UnitTypeSO.UnitType _unitType)
     {
         foreach (UnitTypeSO unitTypeSO in unitTypeListSO)
         {

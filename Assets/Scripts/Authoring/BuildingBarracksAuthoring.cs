@@ -1,4 +1,5 @@
 using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BuildingBarracksAuthoring : MonoBehaviour
@@ -12,32 +13,31 @@ public class BuildingBarracksAuthoring : MonoBehaviour
             Entity entity = GetEntity(TransformUsageFlags.Dynamic);
             AddComponent(entity, new BuildingBarracks()
             {
-                progressMax = authoring.progressMax
+                progressMax = authoring.progressMax,
+                rallyPositionOffset = new float3(10, 0,0 )
             });
 
-            DynamicBuffer<SpawnUnitTypeBuffer> spawnUnitTypeDynamicBuffer = AddBuffer<SpawnUnitTypeBuffer>(entity);
-
-            spawnUnitTypeDynamicBuffer.Add(new SpawnUnitTypeBuffer
-            {
-                unitType = UnitTypeSO.UnitType.Soldier
-            });
-            spawnUnitTypeDynamicBuffer.Add(new SpawnUnitTypeBuffer
-            {
-                unitType = UnitTypeSO.UnitType.Scout
-            });
-            spawnUnitTypeDynamicBuffer.Add(new SpawnUnitTypeBuffer
-            {
-                unitType = UnitTypeSO.UnitType.Soldier
-            });
+             AddBuffer<SpawnUnitTypeBuffer>(entity);
+             AddComponent(entity, new BuildingBarracksUnitEnqueue());
+             SetComponentEnabled<BuildingBarracksUnitEnqueue>(entity, false);
         }
     }
 
+}
+
+public struct BuildingBarracksUnitEnqueue : IComponentData, IEnableableComponent
+{
+    public UnitTypeSO.UnitType unitType;
+    
 }
 
 public struct BuildingBarracks : IComponentData
 {
     public float progress;
     public float progressMax;
+    public UnitTypeSO.UnitType activeUnitType;
+    public float3 rallyPositionOffset;
+    public bool onUnitQueueChanged;
 }
 
 [InternalBufferCapacity(10)]

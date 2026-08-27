@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.Physics;
 using Unity.Transforms;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using RaycastHit = UnityEngine.RaycastHit;
 
 public class UnitSelectionManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class UnitSelectionManager : MonoBehaviour
     public static UnitSelectionManager Instance { get; private set; }
     public event Action OnSelectionAreaStart;
     public event Action OnSelectionAreaEnd;
+    public event Action OnSelectionEntitiesChanged;
     
     private Vector2 selectionStartMousePosition;
 
@@ -22,6 +24,11 @@ public class UnitSelectionManager : MonoBehaviour
 
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        
         if (Input.GetMouseButtonDown(0))
         {
             selectionStartMousePosition = Input.mousePosition;
@@ -83,13 +90,13 @@ public class UnitSelectionManager : MonoBehaviour
                     Filter = new CollisionFilter
                     {
                         BelongsTo = ~0u,
-                        CollidesWith = 1u << GameAssets.UNITS_LAYER,
+                        CollidesWith = 1u << GameAssets.UNITS_LAYER | 1u << GameAssets.BUILDINGS_LAYER,
                         GroupIndex = 0
                     }
                 };
                 if (collisionWorld.CastRay(raycastInput, out Unity.Physics.RaycastHit raycastHit))
                 {
-                    if (entityManager.HasComponent<Unit>(raycastHit.Entity) && entityManager.HasComponent<Selected>(raycastHit.Entity))
+                    if (entityManager.HasComponent<Selected>(raycastHit.Entity))
                     {
                         entityManager.SetComponentEnabled<Selected>(raycastHit.Entity, true);
                         Selected selected = entityManager.GetComponentData<Selected>(raycastHit.Entity);
@@ -103,6 +110,7 @@ public class UnitSelectionManager : MonoBehaviour
             
 
             OnSelectionAreaEnd?.Invoke();
+            OnSelectionEntitiesChanged?.Invoke();
         }
         
         if (Input.GetMouseButtonDown(1))
@@ -176,6 +184,19 @@ public class UnitSelectionManager : MonoBehaviour
                 entityQuery.CopyFromComponentDataArray(targetOverrideArray);
             }
 
+            
+            entityQuery = new EntityQueryBuilder(Allocator.Temp).WithAll<Selected, BuildingBarracks, LocalTransform>().Build(entityManager);
+            NativeArray<BuildingBarracks> buildingBarracksArray = entityQuery.ToComponentDataArray<BuildingBarracks>(Allocator.Temp);
+            NativeArray<LocalTransform> localTransformArray =
+                entityQuery.ToComponentDataArray<LocalTransform>(Allocator.Temp);
+
+            for (int i = 0; i < buildingBarracksArray.Length; i++)
+            {
+                BuildingBarracks buildingBarracks = buildingBarracksArray[i];
+                buildingBarracks.rallyPositionOffset = (float3)mouseWorldPosition - localTransformArray[i].Position;
+                buildingBarracksArray[i] = buildingBarracks;
+            }
+            entityQuery.CopyFromComponentDataArray(buildingBarracksArray);
         }
     }
 
