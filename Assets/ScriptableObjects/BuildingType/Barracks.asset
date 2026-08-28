@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Barracks
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTypeSO
   buildingType: 3
+  prefab: {fileID: 1305960767732237078, guid: 3c420e0e20b69b145a8f0f8971ab1748, type: 3}
+  buildingDistanceMin: 0

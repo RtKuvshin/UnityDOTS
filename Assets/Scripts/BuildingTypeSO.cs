@@ -12,4 +12,6 @@ public class BuildingTypeSO : ScriptableObject
     }
 
     public BuildingType buildingType;
+    public Transform prefab;
+    public float buildingDistanceMin;
 }

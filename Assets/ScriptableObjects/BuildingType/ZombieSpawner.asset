@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: ZombieSpawner
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTypeSO
   buildingType: 1
+  prefab: {fileID: 968340534210029829, guid: f753929b7838d154a986832aee28451f, type: 3}
+  buildingDistanceMin: 0

@@ -9,6 +9,8 @@ public class EntitiesReferenceAuthoring : MonoBehaviour
     public GameObject shootLightPrefabGameObject;
     public GameObject soldierPrefabGameObject;
     public GameObject scoutPrefabGameObject;
+    public GameObject buildingTowerPrefabGameObject;
+    public GameObject buildingBarracksPrefabGameObject;
     
     public class Baker : Baker<EntitiesReferenceAuthoring>
     {
@@ -21,7 +23,9 @@ public class EntitiesReferenceAuthoring : MonoBehaviour
                 zombiePrefabEntity = GetEntity(authoring.zombiePrefabGameObject, TransformUsageFlags.Dynamic),
                 shootLightPrefabEntity = GetEntity(authoring.shootLightPrefabGameObject, TransformUsageFlags.Dynamic),
                 scoutPrefabEntity = GetEntity(authoring.scoutPrefabGameObject, TransformUsageFlags.Dynamic),
-                soldierPrefabEntity = GetEntity(authoring.soldierPrefabGameObject, TransformUsageFlags.Dynamic)
+                soldierPrefabEntity = GetEntity(authoring.soldierPrefabGameObject, TransformUsageFlags.Dynamic),
+                buildingTowerPrefabEntity = GetEntity(authoring.buildingTowerPrefabGameObject, TransformUsageFlags.Dynamic),
+                buildingBarracksPrefabEntity = GetEntity(authoring.buildingBarracksPrefabGameObject, TransformUsageFlags.Dynamic)
             });
         }
     }
@@ -34,4 +38,6 @@ public struct EntitiesReference : IComponentData
     public Entity shootLightPrefabEntity;
     public Entity scoutPrefabEntity;
     public Entity soldierPrefabEntity;
+    public Entity buildingTowerPrefabEntity;
+    public Entity buildingBarracksPrefabEntity;
 }

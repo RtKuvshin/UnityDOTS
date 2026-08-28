@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Tower
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTypeSO
   buildingType: 2
+  prefab: {fileID: 4546075039793803311, guid: 8d042b1ed82a90d489e0d54218697ef5, type: 3}
+  buildingDistanceMin: 10
